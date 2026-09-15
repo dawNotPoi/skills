@@ -1,60 +1,26 @@
 # Skills
 
-Reusable Codex skills for writing and engineering workflows.
+Reusable skills for writing and engineering workflows.
 
 ## Available Skills
 
-### learn-codebase
+### Development
 
-Rapidly build a reliable mental model of an unfamiliar open-source or internal
-repository. The skill avoids linear file-by-file reading and instead combines
-repository mapping, one concrete execution path, core-abstraction analysis,
-state and dependency modeling, runtime/test verification, Git history, active
-recall, and a small change exercise.
+[learn-codebase](skills/development/learn-codebase/SKILL.md) builds an evidence-backed mental model through repository mapping, execution-path tracing, Git history, runtime verification, guided learning, and a small change exercise.
 
-It supports quick orientation, guided interactive learning, and deep subsystem
-analysis. Important claims are expected to be backed by code, tests, runtime
-behavior, commits, or pull requests rather than inferred from filenames.
+### UI
 
-[View the skill](skills/learn-codebase/SKILL.md)
+[UI skills](skills/ui/README.md) cover product discovery, direction design, design-system contracts, implementation, and visual QA.
 
-### write-evidence-driven-blog
+### Writing
 
-Turn learning notes, technical discussions, debugging sessions, architecture
-decisions, and completed engineering work into original, evidence-driven
-Chinese technical blogs.
+[write-evidence-driven-blog](skills/writing/write-evidence-driven-blog/SKILL.md) turns technical work into original, evidence-driven Chinese articles without inventing authorship or results.
 
-The skill emphasizes reader contracts, evidence selection, scoped technical
-claims, accurate first-person attribution, and editing that removes generic AI
-prose without imitating another author's voice.
+## Migration
 
-[View the skill](skills/write-evidence-driven-blog/SKILL.md)
+Skill names have not changed. Source folders now live under their domains:
 
-### UI skills
+- `skills/learn-codebase/` -> `skills/development/learn-codebase/`
+- `skills/write-evidence-driven-blog/` -> `skills/writing/write-evidence-driven-blog/`
 
-A composable workflow for discovering product UI requirements, choosing a
-visual direction, building a design system, implementing interfaces, and
-running visual QA. Each stage is an independent skill with explicit handoff
-artifacts, so teams can use only the capability the task needs.
-
-[View the UI skills overview](skills/ui/README.md)
-
-## Install
-
-Clone the repository and copy the selected skill into your Codex skills
-directory:
-
-```bash
-git clone https://github.com/dawNotPoi/skills.git
-cp -R skills/skills/learn-codebase ~/.codex/skills/
-```
-
-Restart Codex or open a new task, then invoke it explicitly:
-
-```text
-$learn-codebase Help me understand this repository through one real execution path.
-```
-
-For the writing workflow, copy and invoke `write-evidence-driven-blog` in the
-same way. Skills can also be discovered automatically when the request matches
-their frontmatter descriptions.
+Install the leaf skill folder, including its references and templates, into your agent's configured skill directory. Existing copied installations are unaffected; local symlinks to the old source paths need to be updated.
