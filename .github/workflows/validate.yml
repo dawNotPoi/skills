@@ -1,0 +1,16 @@
+name: Validate skill library
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check source layout and catalog
+        run: python3 scripts/library.py check
+      - name: Test validator and safe installer
+        run: python3 -m unittest discover -s tests -v
