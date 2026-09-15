@@ -1,48 +1,49 @@
 ---
 name: design-system-builder
-description: Create or evolve a reusable UI system of tokens, component contracts, states, accessibility rules, and governance from an approved direction and real product needs. Use when multiple screens or teams need consistency and reuse. Do not redefine product requirements, invent an unrelated visual direction, or implement whole product screens.
+description: Create or evolve reusable semantic tokens, theme mappings, component contracts, states and accessibility rules from approved direction and demonstrated needs (主题色、设计系统、组件规范). Use for consistency and reuse, not speculative catalogs. Code-producing work requires a clear contract and implementation authorization; do not redefine product behavior.
 ---
 
 # Design System Builder
 
 Turn repeated UI decisions into a maintainable system without abstracting
-beyond demonstrated product needs.
+beyond demonstrated needs.
 
-## Inputs
+## Inputs and implementation gate
 
-Inspect the approved direction, existing tokens and components, target
-framework, supported platforms, browser matrix, accessibility target, and the
-screens or flows the system must serve. Preserve compatible conventions unless
-there is evidence that migration is worth its cost.
+Read target instructions, the selected direction, existing tokens/components,
+framework, supported platforms, accessibility target and affected screens.
+Preserve compatible conventions; do not re-interview the user about decisions
+already established upstream.
+
+Specifying tokens is not the same as permission to modify shared code. Before
+code-producing work, resolve material behavior/direction/compatibility gaps,
+identify acceptance and a bounded plan, and verify authorization for this scope.
+Existing explicit approval counts. If a critical choice is missing, stop the
+affected coding and return the named decision to discovery/direction with
+options and a recommendation. Do not silently pick a breaking component API.
 
 ## Workflow
 
-1. Audit existing primitives, components, duplicated patterns, and exceptions.
-2. Define semantic foundations: color, typography, spacing, size, radius,
-   border, elevation, motion, and responsive rules. Separate raw values from
-   semantic roles where that distinction enables themes or change.
-3. Prioritize components proven by target screens. For each, define anatomy,
-   variants, states, behavior, content constraints, accessibility semantics,
-   and composition rules.
-4. Specify theming and extension points without exposing arbitrary styling
-   knobs that undermine consistency.
-5. Provide migration and governance guidance proportional to the system's
-   scale, including ownership, compatibility, deprecation, and validation.
-
-Avoid speculative component catalogs. Prefer composition over near-duplicate
-variants, but do not force unlike interactions into one abstraction.
+1. Audit primitives, components, duplication and exceptions in actual screens.
+2. Define semantic color, typography, spacing, size, radius, border, elevation,
+   motion and responsive roles. Separate raw values and semantic mappings where
+   useful. Keep product colors in the token layer; document justified exceptions
+   such as user content, external brand artwork or data-driven visualization.
+3. Prioritize components proven by the current scope. Define anatomy, variants,
+   states, behavior, content constraints, accessibility and composition.
+4. Specify theming and extension points without arbitrary styling knobs that
+   defeat consistency. Validate theme/state combinations as applicable.
+5. Plan migration, compatibility, ownership and validation proportionally.
+   Do not force unrelated interactions into one abstraction.
 
 ## Output: Design-System Contract
 
-Deliver the artifacts appropriate to the request:
+Provide token taxonomy/mappings, prioritized components, their state/behavior
+contracts, theme/responsive/content rules, target-screen coverage, migration,
+known exceptions and unresolved decisions. Preserve target/ref, selected
+version, implementation authorization and acceptance checks at handoff.
 
-- token taxonomy and semantic mappings;
-- prioritized component inventory;
-- component contracts with variants, states, behavior, and accessibility;
-- responsive, theme, content, and composition rules;
-- mapping from target screens to system coverage;
-- migration plan, known exceptions, and governance decisions.
-
-When code is requested, implement system primitives and component examples,
-not unrelated application flows. Leave product-screen assembly to
-`ui-implementer` and independent conformance review to `visual-qa-critic`.
+When authorized to code, implement primitives and examples, not unrelated
+product flows. Report checks actually run and rendering limitations. Leave
+screen assembly to `ui-implementer`; use `visual-qa-critic` for conformance
+review when appropriate. A passing token test is not a visual acceptance pass.

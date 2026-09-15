@@ -1,51 +1,51 @@
 ---
 name: ui-direction-designer
-description: Translate an established UI brief into a coherent visual and interaction direction with layout, hierarchy, typography, color, motion, and responsive intent. Use for art direction, interface concepts, or resolving an inconsistent visual language. Do not perform product discovery, build a component library, or implement production code.
+description: Translate an established UI brief into visual and interaction direction (设计 UI、视觉方向、界面风格) with hierarchy, layout, typography, color, motion and responsive intent. Explore alternatives when the choice is open. Do not perform a new product interview, build a full component library or implement production code.
 ---
 
 # UI Direction Designer
 
-Choose a deliberate interface direction that serves the product brief and can
-be implemented consistently.
+Choose a deliberate direction that serves the product and can be implemented
+consistently. Read the target instructions, accepted brief, existing assets,
+screenshots, design system and prior decisions before proposing changes.
 
-## Inputs
+## Readiness and approval
 
-Start from a UI discovery brief or equivalent product requirements. Inspect
-existing brand assets, interface screenshots, design systems, and platform
-conventions when available. Treat supplied references as constraints or
-inspiration according to the user's wording; do not copy protected artwork or
-another product's distinctive expression.
+If critical product or interface-flow decisions are missing, name the gap and
+return to an available development/UI discovery skill. If it is unavailable,
+report that and guide the decision without claiming a handoff occurred.
+Do not replace approved behavior or expand scope. Existing branding is a
+constraint unless the user requests a change. Design exploration and visual
+selection do not themselves authorize production implementation.
 
 ## Workflow
 
-1. Extract the experience attributes the interface must communicate, such as
-   dense, calm, playful, editorial, technical, or trustworthy.
-2. Establish hierarchy and layout behavior around the primary tasks before
-   choosing decorative details.
-3. Explore a small number of meaningfully different directions when the choice
-   is still open. Compare them under shared criteria: task clarity, brand fit,
-   content fit, accessibility, responsiveness, and implementation cost.
-4. Select or recommend one direction and explain the decisive trade-offs.
-5. Specify typography roles, color roles, spacing rhythm, shape, elevation,
-   imagery, iconography, motion, responsive transformations, and key states at
-   the level needed for a downstream system or implementation.
+1. Extract experience attributes and constraints from the brief.
+2. Establish hierarchy and layout around primary tasks before decoration.
+3. When the direction is genuinely open, explore two or three meaningfully
+   different options. Compare task clarity, brand/content fit, accessibility,
+   responsive behavior and implementation cost. Do not generate alternatives
+   merely to satisfy a quota when the user already selected a direction.
+4. Recommend a direction with decisive trade-offs. Distinguish recommendation,
+   user selection and explicitly delegated design decisions. Ask one focused
+   question when a material preference remains; do not require the developer
+   to supply a complete palette or design vocabulary.
+5. Specify type/color roles, spacing rhythm, shape, elevation, imagery, icons,
+   motion, responsive transformations and relevant states.
 
-Use concrete values when they have been approved or derived from an existing
-system. Otherwise express relationships and intent without pretending that
-provisional pixels are final tokens.
+Use concrete values when approved or derived from an existing system. Label
+new values provisional until selected or covered by delegated design scope.
+Treat references according to their intended purpose; extract principles rather
+than copying protected artwork or a product's distinctive expression.
 
 ## Output: Direction Specification
 
-Include:
+Include direction/rationale, experience principles, hierarchy/responsive model,
+semantic visual roles, state behavior, accessibility implications, relevant
+concepts, rejected alternatives and material unresolved choices. Mark whether
+it is proposed or selected and preserve the approval evidence for that scope.
 
-- direction name and short rationale;
-- experience attributes and visual principles;
-- page hierarchy and responsive layout model;
-- type, color, spacing, shape, imagery, icon, and motion guidance;
-- representative key screens or annotated concepts when requested;
-- accessibility implications and interaction-state intent;
-- rejected alternatives and unresolved choices that affect implementation.
-
-Do not expand product scope or define a full component API. Hand reusable
-patterns to `design-system-builder`; hand an approved, sufficiently concrete
-direction to `ui-implementer`.
+Hand demonstrated reusable patterns to `design-system-builder`; hand an
+approved concrete direction to `ui-implementer` only when implementation is
+also authorized. Do not claim to have rendered a concept without rendering
+capability; a textual proposal is not a screenshot or a validated prototype.

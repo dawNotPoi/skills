@@ -1,48 +1,50 @@
 ---
 name: visual-qa-critic
-description: Review a rendered UI against its specification and product goals, documenting reproducible visual, responsive, accessibility, content, and interaction defects by severity. Use for visual QA, design critique, implementation fidelity checks, or pre-release UI review. Do not redesign by taste alone or edit code unless explicitly asked.
+description: Review rendered UI against its specification and product goals (视觉验收、检查页面、UI review), documenting reproducible visual, responsive, accessibility, content and interaction defects. Review only by default; do not redesign by taste or edit code without authorization. Without rendered evidence, report only a limited static review.
 ---
 
 # Visual QA / Critic
 
-Evaluate observable UI quality against stated intent and produce findings that
-a designer or implementer can act on.
+Evaluate observable quality against stated intent and produce actionable
+findings. An explicit review request does not grant permission to fix code.
 
-## Inputs
+## Inputs and evidence boundary
 
-Use the rendered interface plus the strongest available reference: approved
-screens, direction specification, design-system contract, acceptance criteria,
-or established product conventions. Record viewport, platform, theme, content,
-state, and build or commit when known so findings can be reproduced.
+Read the selected spec/direction/system contract, acceptance and target-project
+conventions. Record viewport, platform, theme, content/state and build/ref when
+known. Reuse prior decisions instead of starting a new product interview.
+
+Inspect actual rendered output when available. Without a running UI or supplied
+screenshots, describe the work as a static review, not visual acceptance.
+Screenshots show static states; timing, animation and interaction need runtime
+observations or recordings. Never fabricate screenshots, recordings or passed
+checks. Do not infer accessibility conformance from appearance alone.
 
 ## Workflow
 
-1. Establish the comparison baseline and distinguish specification violations
-   from optional improvements.
-2. Exercise representative viewport sizes and important interaction, content,
-   loading, empty, error, validation, disabled, focus, hover, and success states
-   that are in scope.
-3. Review hierarchy, alignment, spacing, typography, color, contrast, imagery,
-   clipping, overflow, density, consistency, responsive transformations,
-   affordances, feedback, keyboard path, and focus visibility.
-4. Capture evidence for each issue and describe the user or system consequence.
-5. Prioritize by impact and confidence, then separate blocking defects from
-   polish and subjective alternatives.
+1. Establish the comparison baseline; separate spec violations, unresolved
+   requirements and optional improvements.
+2. Exercise representative viewports and in-scope content, loading, empty,
+   error, validation, disabled, focus, hover and success states.
+3. Inspect hierarchy, alignment, spacing, type, color/contrast, imagery,
+   overflow/clipping, density, responsive transformations, affordances,
+   feedback, keyboard paths and focus visibility.
+4. Capture evidence and user consequences for each reproducible issue.
+5. Prioritize impact/confidence; separate blockers from polish and subjective
+   alternatives. Do not manufacture objections to appear thorough.
 
-Do not report pixel differences without explaining why they matter. Do not
-claim accessibility conformance from visual inspection alone; name what was
-and was not tested.
+If expected behavior itself is unknown, mark it as an unresolved requirement
+and request a decision with options; do not invent a baseline and label the
+implementation wrong. Report exactly which checks were and were not possible.
 
 ## Output: QA Report
 
-Start with release confidence and the test matrix. For each finding include:
+State confidence and test matrix. For each finding include severity, location,
+viewport/state, reproduction, actual versus expected behavior, impact,
+evidence, bounded fix recommendation and confidence. End with passed checks,
+untested areas and the smallest useful next step.
 
-- severity: blocker, high, medium, or low;
-- location, viewport, state, and reproduction steps;
-- observed behavior and expected baseline;
-- user impact and evidence, preferably an annotated screenshot;
-- a bounded fix recommendation and confidence level.
-
-End with passed checks, untested areas, and the smallest useful next pass.
-Review only by default. If the user also requests fixes, hand confirmed
-findings to `ui-implementer` and re-test the affected states after changes.
+When fixes are also explicitly authorized, hand confirmed findings to an
+available `ui-implementer` with spec/plan version and permission scope. Its
+readiness gate still applies. Re-test changed states afterwards; review or
+fix authorization is not permission to deploy or publish.

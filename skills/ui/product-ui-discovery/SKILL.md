@@ -1,48 +1,52 @@
 ---
 name: product-ui-discovery
-description: Turn an ambiguous product or feature request into evidence-backed UI requirements, task flows, content needs, states, and acceptance criteria. Use before visual design when the user, problem, workflow, or constraints are unclear. Do not choose a visual style, create a design system, or implement the interface.
+description: Turn known product intent into evidence-backed UI flows, content, states and acceptance criteria (界面需求、交互流程、页面状态没说清). Use before visual design when the interface workflow is unclear. Guide unresolved choices with options and a recommendation. Route system or permission decisions upstream; do not implement or select a visual style.
 ---
 
 # Product UI Discovery
 
 Define what the interface must enable before deciding how it should look.
 
-## Inputs
+## Inputs and boundary
 
-Use available product notes, user feedback, analytics, screenshots, existing
-flows, platform constraints, and stakeholder decisions. Distinguish observed
-evidence from assumptions. Ask only about unknowns that would change the core
-workflow, scope, or safety of the result.
+Read the existing conversation, target project instructions, product notes,
+flows, screenshots, design system and prior decisions first. Reuse confirmed
+requirements; do not restart the developer interview at every handoff. Separate
+observed evidence from assumptions and proposed defaults.
+
+If state ownership, permissions, offline/retry semantics or the meaning of an
+action are unresolved, name the specific blocker and use an available
+`development-discovery` skill. Do not loop between discovery skills without a
+new decision. If that skill is unavailable, explain the blocker and guide the
+same decision locally; never pretend it was loaded.
 
 ## Workflow
 
-1. State the product outcome, target users, and the situation that triggers the
-   interaction.
-2. Identify primary and secondary user jobs. Rank them rather than treating
-   every requested feature as equal.
+1. State outcome, users, trigger, primary task and explicit non-goals.
+2. Read existing behavior before ranking primary and secondary user jobs.
 3. Map the shortest successful flow and meaningful alternate paths.
-4. Inventory required information, actions, permissions, validation, loading,
-   empty, error, partial, offline, and success states.
-5. Capture platform, responsive, accessibility, localization, privacy, and
-   technical constraints that affect the UI.
-6. Convert the findings into testable acceptance criteria and record open
-   questions with their decision impact.
+4. Inventory content, actions, permissions, validation, loading, empty, error,
+   partial, offline and success states relevant to this scope.
+5. Identify platform, responsive, accessibility, localization, privacy and
+   technical constraints. Avoid adding requirements merely to fill a checklist.
+6. For a material UI choice, ask one focused question, offer meaningful
+   alternatives, explain their consequences and recommend one. At most three
+   related questions per turn. If the developer does not know, explain with a
+   user scenario rather than asking the same question again.
+7. Record decisions and convert them into observable acceptance criteria.
 
-Do not invent research findings. When evidence is unavailable, label a claim
-as a hypothesis and propose the cheapest useful validation.
+Do not invent user research. Label hypotheses and propose the cheapest useful
+validation. This skill is non-implementing: unresolved flow/acceptance decisions
+must not be silently completed in code.
 
 ## Output: UI Discovery Brief
 
-Deliver a compact brief containing:
+Include outcome/users/context, ranked tasks, scope/non-goals, primary and
+failure flows, content/state inventory, existing constraints and references,
+acceptance, confirmed decisions, assumptions and critical open questions.
+Preserve target/ref, upstream spec/plan version and approval source when known.
 
-- outcome, users, context, and prioritized jobs;
-- scope and explicit non-goals;
-- primary flow plus relevant alternate and failure paths;
-- content and state inventory;
-- constraints and authoritative references;
-- acceptance criteria;
-- assumptions, evidence gaps, and unresolved decisions.
-
-The brief should let a direction designer explore presentation without
-re-deciding the product problem. Stop before selecting typography, color,
-layout style, or component APIs.
+A UI brief does not authorize coding. Hand off to direction design only when
+needed, or to implementation after the current behavior/design and coding scope
+are authorized. Persist artifacts in the target project only within authorized
+writes; otherwise provide the brief in chat and mark it unsaved.

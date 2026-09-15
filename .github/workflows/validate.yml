@@ -1,0 +1,27 @@
+name: Validate skill library
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate entries, metadata, index and relative links
+        run: python3 scripts/check_library.py
+      - name: Test installation and validation safeguards
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Smoke-test a complete flat installation
+        run: |
+          DEST="$(mktemp -d)"
+          python3 scripts/install_skills.py --dest "$DEST/skills" --all --dry-run
+          python3 scripts/install_skills.py --dest "$DEST/skills" --all
