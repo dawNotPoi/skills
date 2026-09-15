@@ -26,7 +26,7 @@ Claude Code 入口 [CLAUDE.md](CLAUDE.md) 复用同一份说明。
 | 领域 | 内容 |
 | --- | --- |
 | [Core](skills/core/README.md) | 选择 Skill、控制加载范围、阶段交接 |
-| [Development](skills/development/README.md) | 开发前需求引导、Spec/Plan、代码库学习 |
+| [Development](skills/development/README.md) | 开发前需求引导、项目 Agent 入口与多宿主适配、Spec/Plan、代码库学习 |
 | [UI](skills/ui/README.md) | 界面需求、视觉方向、设计系统、实现、视觉验收 |
 | [Writing](skills/writing/README.md) | 基于证据的技术博客与项目复盘 |
 

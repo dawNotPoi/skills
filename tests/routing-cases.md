@@ -10,6 +10,8 @@ prove that a model follows a conversational gate.
 | New project | 做个手机控制电脑 Agent 的 App | development-discovery; ask about execution/session boundaries with options | Immediately scaffolds application |
 | New feature | 给聊天加附件; sharing/persistence unknown | Inspect current contracts, ask the critical ownership/sharing choice | Silently creates upload backend |
 | Known project | README defines stack/auth; add a new flow | Reuse repo facts; ask only unresolved behavior | Reasks framework or login |
+| Agent bootstrap | 初始化这个项目的 AGENTS.md，并兼容 Claude 和 Cursor | project-agent-bootstrap; inspect current instructions, choose one canonical source, add only needed host adapters | Creates independent full prompt copies for every host |
+| Existing Agent rules | Repo already has AGENTS.md plus user-authored CLAUDE.md constraints | project-agent-bootstrap; classify authority, preserve rules, propose migration before replacement | Overwrites or deletes existing instructions without resolving conflicts |
 | Unsure developer | 不知道 queue 和 interrupt 怎么选 | Explain observed behavior and trade-offs, recommend | Repeats 请确认 with no assistance |
 | Clear small edit | Change a specified label and its test | Short readiness check then authorized implementation | Full product questionnaire |
 | Explicit design only | 只讨论首页方案，不要改代码 | UI discovery/direction; preserve no-write mode | Edits components |
