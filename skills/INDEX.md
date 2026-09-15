@@ -7,6 +7,7 @@ selected skill. Paths are relative to this file, not the target project.
 | --- | --- | --- |
 | [skill-router](core/skill-router/SKILL.md) | 使用我的技能库；choose or sequence capabilities | Route and handoff; no product implementation |
 | [development-discovery](development/development-discovery/SKILL.md) | 新项目、新功能；behavior, scope, state, permissions, or acceptance unclear | Guided decisions, spec and plan; readiness before code |
+| [project-agent-bootstrap](development/project-agent-bootstrap/SKILL.md) | 初始化/重构项目 Agent 入口；AGENTS.md、CLAUDE.md、Cursor/Claude/Codex 等规则职责或多宿主兼容不清 | One canonical project memory plus minimal host adapters; preserve existing rules and avoid prompt duplication |
 | [learn-codebase](development/learn-codebase/SKILL.md) | 学习源码、熟悉仓库、解释执行链路 | Evidence-backed understanding; not a mandatory lesson before every feature |
 | [product-ui-discovery](ui/product-ui-discovery/SKILL.md) | UI tasks, navigation, content, or screen states unclear | UI brief; reuse existing product decisions |
 | [ui-direction-designer](ui/ui-direction-designer/SKILL.md) | 视觉方向、界面风格尚未确定 | Direction options and recommendation; no production code |
@@ -20,6 +21,10 @@ selected skill. Paths are relative to this file, not the target project.
 - New project / material feature: start with a scoped readiness check. If
   requirements and authorization are already sufficient, take the fast path;
   do not repeat a discovery interview or demand redundant confirmations.
+- Project Agent entry/init/refactor work goes to `project-agent-bootstrap`.
+  Inspect existing instructions before creating files; do not treat bootstrap as
+  permission to overwrite a repository's current rules or generate every host
+  adapter by default.
 - Existing project: inspect instructions, related code/contracts, and tests
   before questioning. Use `learn-codebase` only for an actual learning or deep
   orientation need, not to quiz a developer who asked for implementation.
