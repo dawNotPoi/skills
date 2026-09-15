@@ -1,52 +1,61 @@
 ---
 name: ui-implementer
-description: Implement an approved UI direction or specification in an existing or new codebase, including responsive behavior, interaction states, accessibility, and verification. Use when the user asks to build or modify the interface. Do not silently change product requirements or substitute a new visual direction.
+description: Implement clear, authorized UI changes in new or existing codebases with responsive behavior, states, accessibility, and verification. Use for 实现页面 and approved interface changes. Check readiness even on direct invocation; stop on critical missing product decisions rather than resolving them in code.
 ---
 
 # UI Implementer
 
-Build the specified experience faithfully in the target environment and prove
-that its important behavior works.
+Build the specified experience faithfully and prove its important behavior.
 
-## Inputs
+## Readiness before writes
 
-Inspect the repository instructions, existing architecture, design system,
-assets, UI specification, supported viewports, and acceptance criteria. Reuse
-the project's components and conventions when they satisfy the specification.
-Record material gaps or conflicts before resolving them; ask only when the
-choice changes product behavior or an approved direction.
+Read the conversation, target-project instructions, relevant routes/components,
+contracts, tests, design direction and acceptance criteria before editing.
+Keep the skill-library root separate from the target project.
+
+Implementation requires clear outcome, scope, important behavior and failure
+semantics, constraints, observable acceptance and explicit authorization. Reuse
+an existing approved spec/plan; for a clear small fix an inline summary suffices.
+Do not require paperwork or another approval for an already authorized edit.
+
+If a critical requirement is missing, pause the affected implementation. Do not
+scaffold files, add dependencies or encode a guess. Use `development-discovery`
+for product/system decisions or `product-ui-discovery` for UI-flow decisions.
+If unavailable, identify the unknown, explain its impact, offer alternatives
+and a recommendation, ask one focused question, and wait. Do not present a
+proposed default or agent-written approval field as user confirmation.
+
+Reversible details may follow the existing system. New persistence, permission,
+API, destructive or cost-bearing behavior is not a reversible styling detail.
+A proposal/review request is not implementation permission.
 
 ## Workflow
 
-1. Trace the relevant routes, components, styles, data boundaries, and tests
-   before editing.
-2. Plan the smallest coherent change. Separate reusable primitives only when
-   actual repetition or ownership boundaries justify it.
-3. Implement semantic structure, content hierarchy, responsive layout,
-   interactions, keyboard behavior, focus, validation, and loading, empty,
-   error, disabled, and success states in scope.
-4. Use real assets and data contracts when available. Do not disguise missing
-   behavior with decorative mock controls or fabricate production data.
-5. Verify the changed UI at representative viewport sizes and interaction
-   states. Run relevant automated checks and inspect rendered output when the
-   environment supports it.
+1. Trace related code, data boundaries and tests; plan the smallest coherent
+   change. Mark proposed-new paths separately from verified existing files.
+2. Implement semantic structure, hierarchy, responsive layout, keyboard/focus,
+   validation and relevant loading/empty/error/disabled/success states.
+3. Reuse actual components and semantic tokens. Do not silently introduce a
+   new brand, arbitrary color system, or near-duplicate component catalog.
+4. Use real data contracts and assets. Explicitly label mocks and prototypes;
+   never disguise unsupported behavior behind decorative controls.
+5. Run relevant checks and inspect rendered output when tools allow. Temporal
+   behavior needs interaction/recording evidence, not only a screenshot.
+6. Compare results to acceptance criteria. A passing build is not UI acceptance.
 
-Follow established framework and styling choices. Adding a dependency,
-rewriting architecture, or changing a shared system requires a concrete need
-within the requested scope.
+Adding a dependency, replacing shared architecture or migrating a public
+contract must be justified within scope. If new evidence invalidates a critical
+decision, stop affected work and reopen only that decision; preserve user edits.
 
-## Output
+## Output and handoff
 
-Provide:
+Report changed behavior and acceptance mapping, checks actually run, visual or
+interaction evidence, spec deviations, and unverified areas. Do not describe
+an unavailable simulator/browser as having passed acceptance.
 
-- the working implementation;
-- a concise mapping from specification or acceptance criteria to changed
-  behavior;
-- checks performed and their results;
-- screenshots or preview references when useful;
-- remaining gaps, assumptions, and any follow-up that needs a product or design
-  decision.
+Use `visual-qa-critic` for a separate review when requested or when fidelity is
+central. If unavailable, report the limitation. A separate review pass is not
+proof of an independent agent or a guarantee against shared errors.
 
-Implementation does not authorize deployment, publishing, or unrelated
-repository changes. Use `visual-qa-critic` for a separate visual review when
-requested or when fidelity is central to acceptance.
+Implementation does not authorize deployment, publication, unrelated changes,
+or overwriting project instructions. Propose durable rule updates separately.
