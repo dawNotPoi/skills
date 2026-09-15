@@ -1,60 +1,51 @@
 # Skills
 
-Reusable Codex skills for writing and engineering workflows.
+Reusable Agent skills for software development, product UI, repository learning, and technical writing.
 
-## Available Skills
+This repository is designed to work both as a human-browsable skill library and as a repository that can be handed directly to a coding Agent.
 
-### learn-codebase
+## Entry points
 
-Rapidly build a reliable mental model of an unfamiliar open-source or internal
-repository. The skill avoids linear file-by-file reading and instead combines
-repository mapping, one concrete execution path, core-abstraction analysis,
-state and dependency modeling, runtime/test verification, Git history, active
-recall, and a small change exercise.
+- **Human:** start here, then browse by domain under `skills/`.
+- **Agent:** read [`AGENTS.md`](AGENTS.md) first.
+- **Skill routing:** use [`skills/INDEX.md`](skills/INDEX.md) to select the smallest useful set of skills.
+- **Generic software-development request:** start with `development-discovery` when important product or system decisions are still unresolved.
 
-It supports quick orientation, guided interactive learning, and deep subsystem
-analysis. Important claims are expected to be backed by code, tests, runtime
-behavior, commits, or pull requests rather than inferred from filenames.
+## Domains
 
-[View the skill](skills/learn-codebase/SKILL.md)
+| Domain | Purpose | Entry |
+| --- | --- | --- |
+| `core` | Route tasks to the right skills without preloading the library | `skills/core/skill-router/SKILL.md` |
+| `development` | Clarify new projects/features and learn unfamiliar codebases | `skills/development/README.md` |
+| `ui` | Discover, design, systematize, implement, and review product UI | `skills/ui/README.md` |
+| `writing` | Turn engineering evidence into technical writing | `skills/writing/README.md` |
 
-### write-evidence-driven-blog
+## Repository usage
 
-Turn learning notes, technical discussions, debugging sessions, architecture
-decisions, and completed engineering work into original, evidence-driven
-Chinese technical blogs.
+When giving the whole repository to an Agent, use a simple instruction such as:
 
-The skill emphasizes reader contracts, evidence selection, scoped technical
-claims, accurate first-person attribution, and editing that removes generic AI
-prose without imitating another author's voice.
+```text
+Use my skills repository for this task. Read AGENTS.md first and select only the skills you need.
+```
 
-[View the skill](skills/write-evidence-driven-blog/SKILL.md)
+The Agent should not load every `SKILL.md`. The library is intentionally routed through `skills/INDEX.md` so context stays focused.
 
-### UI skills
+## Install individual skills
 
-A composable workflow for discovering product UI requirements, choosing a
-visual direction, building a design system, implementing interfaces, and
-running visual QA. Each stage is an independent skill with explicit handoff
-artifacts, so teams can use only the capability the task needs.
-
-[View the UI skills overview](skills/ui/README.md)
-
-## Install
-
-Clone the repository and copy the selected skill into your Codex skills
-directory:
+Clone the repository and copy only the skill directories you need into your Agent's skill directory. For example:
 
 ```bash
 git clone https://github.com/dawNotPoi/skills.git
-cp -R skills/skills/learn-codebase ~/.codex/skills/
+cp -R skills/skills/development/learn-codebase ~/.codex/skills/
+cp -R skills/skills/development/development-discovery ~/.codex/skills/
 ```
 
-Restart Codex or open a new task, then invoke it explicitly:
+Skills remain independently discoverable through their frontmatter descriptions, so installing the whole repository is not required.
 
-```text
-$learn-codebase Help me understand this repository through one real execution path.
-```
+## Design principles
 
-For the writing workflow, copy and invoke `write-evidence-driven-blog` in the
-same way. Skills can also be discovered automatically when the request matches
-their frontmatter descriptions.
+- Prefer the smallest skill set that resolves the task.
+- Keep product decisions, design decisions, implementation, and critique distinct.
+- Do not silently resolve material product decisions in code.
+- Persist important specifications and implementation plans when they are needed for handoff or later maintenance.
+- Treat tests, runtime behavior, repository history, screenshots, and other observable evidence as stronger than unsupported inference.
