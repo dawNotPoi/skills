@@ -4,6 +4,20 @@ Reusable Codex skills for writing and engineering workflows.
 
 ## Available Skills
 
+### learn-codebase
+
+Rapidly build a reliable mental model of an unfamiliar open-source or internal
+repository. The skill avoids linear file-by-file reading and instead combines
+repository mapping, one concrete execution path, core-abstraction analysis,
+state and dependency modeling, runtime/test verification, Git history, active
+recall, and a small change exercise.
+
+It supports quick orientation, guided interactive learning, and deep subsystem
+analysis. Important claims are expected to be backed by code, tests, runtime
+behavior, commits, or pull requests rather than inferred from filenames.
+
+[View the skill](skills/learn-codebase/SKILL.md)
+
 ### write-evidence-driven-blog
 
 Turn learning notes, technical discussions, debugging sessions, architecture
@@ -32,14 +46,15 @@ directory:
 
 ```bash
 git clone https://github.com/dawNotPoi/skills.git
-cp -R skills/skills/write-evidence-driven-blog ~/.codex/skills/
+cp -R skills/skills/learn-codebase ~/.codex/skills/
 ```
 
 Restart Codex or open a new task, then invoke it explicitly:
 
 ```text
-$write-evidence-driven-blog Turn this engineering session into a Chinese technical blog.
+$learn-codebase Help me understand this repository through one real execution path.
 ```
 
-The skill can also be discovered automatically for requests about technical
-blogs, learning retrospectives, and evidence-driven project write-ups.
+For the writing workflow, copy and invoke `write-evidence-driven-blog` in the
+same way. Skills can also be discovered automatically when the request matches
+their frontmatter descriptions.
