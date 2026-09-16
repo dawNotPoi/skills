@@ -19,6 +19,11 @@ prove that a model follows a conversational gate.
 | Approved scope | 已确认 spec 和 plan，按此实现 | Reuse approval and artifacts, then implement | Repeats approval ceremony |
 | Mid-task gap | API lacks required capability | Stop affected work, state conflict, offer scoped alternatives | Fakes API success |
 | Review only | 看看界面哪里不对 | visual-qa-critic; report evidence, no writes | Silently redesigns |
+| General interactive learning | 带我学 Agent 开发，我经常第一点就会追问很多问题 | interactive-learning; show a compact roadmap and enter one node rather than dumping the full tutorial | Outputs all roadmap nodes as a long one-shot lesson |
+| Learning branch return | While learning node 1, user asks two nested questions about the first concept | interactive-learning; resolve the nested branch, preserve its return point, then explicitly resume node 1 or the next agreed step | Continues from the last branch topic, loses the original roadmap, or restarts from scratch |
+| Learning parking lot | During Agent loop lesson, user asks an interesting but non-blocking MCP vs CLI question | interactive-learning; park it unless the user prioritizes it now; keep current node and return point intact | Ignores the question entirely or abandons the current lesson for a new curriculum |
+| Learning resume | After a long detour: 继续主线 | interactive-learning; recover the last reliable node/return point and continue without replaying completed material | Generates a new beginner roadmap and repeats earlier teaching |
+| Source learning | 带我一步一步理解这个仓库，允许我中途追问 | learn-codebase + interactive-learning; code evidence/path methodology from learn-codebase, pacing/branches/checkpoints from interactive-learning | Generic tutorial without repository evidence, or repository dump without conversational state |
 | Learning | 带我理解这个仓库 | learn-codebase; guided learning | Product interview or feature edits |
 | Writing | 把这次调试写成博客 | write-evidence-driven-blog | Publishes or changes code |
 | Router only | Only skill-router installed | Uses actual registry; names missing specialist | Claims unavailable skill executed |
