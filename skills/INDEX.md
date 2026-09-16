@@ -6,6 +6,7 @@ selected skill. Paths are relative to this file, not the target project.
 | Skill | Start here when | Output / boundary |
 | --- | --- | --- |
 | [skill-router](core/skill-router/SKILL.md) | 使用我的技能库；choose or sequence capabilities | Route and handoff; no product implementation |
+| [interactive-learning](core/interactive-learning/SKILL.md) | 带我学、一步一步学；long conversational learning with follow-up questions or frequent detours | Stable learning roadmap, branch/return-point handling, checkpoints; does not replace domain-specific evidence methods |
 | [development-discovery](development/development-discovery/SKILL.md) | 新项目、新功能；behavior, scope, state, permissions, or acceptance unclear | Guided decisions, spec and plan; readiness before code |
 | [project-agent-bootstrap](development/project-agent-bootstrap/SKILL.md) | 初始化/重构项目 Agent 入口；AGENTS.md、CLAUDE.md、Cursor/Claude/Codex 等规则职责或多宿主兼容不清 | One canonical project memory plus minimal host adapters; preserve existing rules and avoid prompt duplication |
 | [learn-codebase](development/learn-codebase/SKILL.md) | 学习源码、熟悉仓库、解释执行链路 | Evidence-backed understanding; not a mandatory lesson before every feature |
@@ -18,6 +19,15 @@ selected skill. Paths are relative to this file, not the target project.
 
 ## Routing rules
 
+- General conversational learning, especially when the user asks to proceed step
+  by step or frequently interrupts with questions, may use `interactive-learning`
+  to preserve the roadmap, branch stack, return point, parking lot, and learning
+  checkpoints. Do not use it for a one-shot factual answer or force quiz mode on
+  users who asked for a report.
+- Repository/source learning still belongs to `learn-codebase`. When the user is
+  learning interactively, compose it with `interactive-learning`: repository
+  evidence and execution-path methodology stay with `learn-codebase`; pacing and
+  conversational state stay with `interactive-learning`.
 - New project / material feature: start with a scoped readiness check. If
   requirements and authorization are already sufficient, take the fast path;
   do not repeat a discovery interview or demand redundant confirmations.
