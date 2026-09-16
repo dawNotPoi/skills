@@ -25,7 +25,7 @@ Claude Code 入口 [CLAUDE.md](CLAUDE.md) 复用同一份说明。
 
 | 领域 | 内容 |
 | --- | --- |
-| [Core](skills/core/README.md) | 选择 Skill、控制加载范围、阶段交接 |
+| [Core](skills/core/README.md) | 选择 Skill、控制加载范围、阶段交接、交互学习状态管理 |
 | [Development](skills/development/README.md) | 开发前需求引导、项目 Agent 入口与多宿主适配、Spec/Plan、代码库学习 |
 | [UI](skills/ui/README.md) | 界面需求、视觉方向、设计系统、实现、视觉验收 |
 | [Writing](skills/writing/README.md) | 基于证据的技术博客与项目复盘 |
@@ -49,7 +49,7 @@ python3 scripts/library.py install --dest "$HOME/.agents/skills" --all
 ```
 
 脚本只复制技能文件，不执行 Skill 内脚本，不改项目指令，不自动安装依赖。
-用 `--skill development-discovery --skill skill-router` 可只选择部分技能。
+用 `--skill interactive-learning --skill learn-codebase` 可组合通用交互学习与源码学习；
 安装 router 不会自动安装其他技能。平台路径依据见使用说明中的官方来源。
 
 ## 目录迁移
