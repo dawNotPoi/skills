@@ -16,6 +16,7 @@ selected skill. Paths are relative to this file, not the target project.
 | [ui-implementer](ui/ui-implementer/SKILL.md) | 按已明确的需求实现或修改界面 | Scoped code and verification; stop on critical missing decisions |
 | [visual-qa-critic](ui/visual-qa-critic/SKILL.md) | 检查界面、视觉验收、交互回归 | Evidence-backed findings; review-only by default |
 | [write-evidence-driven-blog](writing/write-evidence-driven-blog/SKILL.md) | 技术博客、学习复盘、项目文章 | Original draft from evidence; no automatic publication |
+| [explaining-in-plain-language](writing/explaining-in-plain-language/SKILL.md) | 说得直白一点、用个比喻、两分钟能看完；把 issue、PR 评审、设计决策或调试结果讲给不熟悉背景的人，或整理成笔记和提问 | Plain-language explanation in about two minutes; keeps the main blocker and identifiers intact; explains, does not authorize work |
 
 ## Routing rules
 
@@ -42,6 +43,13 @@ selected skill. Paths are relative to this file, not the target project.
   direction. Cross-cutting product/system unknowns go to development discovery.
 - A tiny, unambiguous fix can go directly to the relevant implementer. There is
   no need for a full spec ceremony or new design system.
+- A request to explain an existing situation briefly in plain words — an issue,
+  a PR review, a design decision, a debugging result — goes to
+  `explaining-in-plain-language`, whether the goal is a note, a question, or
+  telling someone what happened. It explains; it does not authorize code changes,
+  publish, or start a multi-turn lesson. When the material deserves a full
+  article, hand off to `write-evidence-driven-blog`; when the user wants to learn
+  a topic across turns, use `interactive-learning`.
 - Review and writing requests do not imply code changes. Route newly discovered
   uncertainty back to the owning skill, not automatically to the entire pipeline.
 - There is no backend implementation, deployment, or debugging skill in this
