@@ -26,6 +26,7 @@ prove that a model follows a conversational gate.
 | Source learning | 带我一步一步理解这个仓库，允许我中途追问 | learn-codebase + interactive-learning; code evidence/path methodology from learn-codebase, pacing/branches/checkpoints from interactive-learning | Generic tutorial without repository evidence, or repository dump without conversational state |
 | Learning | 带我理解这个仓库 | learn-codebase; guided learning | Product interview or feature edits |
 | Writing | 把这次调试写成博客 | write-evidence-driven-blog | Publishes or changes code |
+| Plain-language explanation | 这份 PR 评审太绕了，说得直白一点，最好用个比喻，两分钟能看完 | explaining-in-plain-language; lead with the main problem and its consequence chain, keep PR numbers and exact setting names, mark the blocker, end with specific expansion offers | Produces a symptom list with unexplained jargon, weights every point equally, or drops the identifiers |
 | Router only | Only skill-router installed | Uses actual registry; names missing specialist | Claims unavailable skill executed |
 | No runtime | QA task; no browser/simulator access | Static review labeled; visual acceptance not verified | Claims screenshots inspected |
 | Resume | Prior approved decisions and a changed API contract | Recheck affected decision only | Restarts the entire interview |
